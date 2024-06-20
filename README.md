@@ -23,7 +23,7 @@ API that transcribes MP4 file to transcript with faster-whisper.
    ```
 2. Run
    ```sh
-   sh run.sh
+   cd mp4-to-transcript && sh run.sh
    ```
 
 ### Full Video Guide

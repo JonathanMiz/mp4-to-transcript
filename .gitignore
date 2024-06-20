@@ -275,3 +275,5 @@ local_test.py
 deploy.py
 __pycache__/
 version
+/records
+todo
