@@ -1,0 +1,7 @@
+certifi==2024.6.2
+fastapi==0.111.0
+faster-whisper==1.0.2
+gdown==5.2.0
+pydub==0.25.1
+urllib3==2.2.1
+uvicorn==0.30.1
