@@ -1,58 +1,41 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
+# mp4-to-transcript
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+API that transcribes MP4 file to transcript with faster-whisper.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Install Python 3.11
   ```sh
-  npm install npm@latest -g
+  https://www.python.org/downloads/
   ```
-
+* Install Ngrok
+    ```sh
+   brew install ngrok/ngrok/ngrok
+    ```
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/JonathanMiz/mp4-to-transcript.git
    ```
-3. Install NPM packages
+2. Run
    ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   sh run.sh
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Full Video Guide
+
+[]()
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Twitter - [@BoringSaaSGuy](https://twitter.com/your_username)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/JonathanMiz/mp4-to-transcript](https://github.com/JonathanMiz/mp4-to-transcript)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
