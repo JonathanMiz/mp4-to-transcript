@@ -25,10 +25,11 @@ def extract_audio_from_video(video_file_path, audio_file_path):
 
 
 model = WhisperModel("medium", device="cpu", compute_type="int8")
+Path.mkdir(Path(os.path.join("records"), exist_ok=True))
 
 
 def transcribe(audio_file):
-    segments, info = model.transcribe(audio_file, word_timestamps=True, language="he")
+    segments, info = model.transcribe(audio_file, word_timestamps=True)
 
     print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 
@@ -114,4 +115,4 @@ def transcribe_text_api(file_id: str):
 
 @app.get("/getTranscriptJSON")
 def transcribe_json_api(file_id: str):
-    return read_file(f"records/{file_id}/transcript.json")
+    return read_file(os.path.join("records", file_id, "transcript.json"))

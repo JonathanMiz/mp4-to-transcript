@@ -5,6 +5,11 @@
 
 API that transcribes MP4 file to transcript with faster-whisper.
 
+### Replit
+
+https://replit.com/@jonathanmizr/mp4-to-transcript
+
+
 ### Prerequisites
 
 * Install Python 3.11
@@ -21,9 +26,9 @@ API that transcribes MP4 file to transcript with faster-whisper.
    ```sh
    git clone https://github.com/JonathanMiz/mp4-to-transcript.git
    ```
-2. Run
+2. Run dev environment
    ```sh
-   cd mp4-to-transcript && sh run.sh
+   cd mp4-to-transcript && sh dev_run.sh
    ```
 
 ### Full Video Guide
