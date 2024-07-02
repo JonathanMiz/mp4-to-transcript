@@ -63,6 +63,7 @@ Path.mkdir(Path(os.path.join("records")), exist_ok=True)
 def faster_whisper_transcribe(audio_file, language=None):
     segments, info = model.transcribe(audio_file, word_timestamps=True, language=language, task="translate")
 
+    print(f"Language: {language}")
     print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 
     formatted_segments = []
