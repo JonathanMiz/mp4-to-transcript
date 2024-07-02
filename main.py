@@ -248,11 +248,16 @@ async def transcribe_audio_file(file: UploadFile, language: str):
     return faster_whisper_transcribe(file.file, language)
 
 
-@app.get("/transcribeGoogleDrive")
+@app.get("/transcribeGoogleDriveAsync")
 def run_transcription_with_google_drive(file_id: str, notion_page_id: str, language: str):
     thread = Thread(target=google_drive_transcription_task, args=(file_id, notion_page_id, language))
     thread.start()
     return {"message": "Transcription started", "file_id": file_id, "notion_page_id": notion_page_id}
+
+
+@app.get("/transcribeGoogleDrive")
+def run_transcription_with_google_drive(file_id: str, notion_page_id: str, language: str):
+    return google_drive_transcription_task(file_id, notion_page_id, language)
 
 
 @app.get("/transcribeYouTubeURL")
@@ -262,11 +267,16 @@ def run_transcription_with_youtube(file_id: str, language: str):
     return {"message": "Transcription started", "file_id": file_id}
 
 
-@app.get("/transcribeLocalFile")
+@app.get("/transcribeLocalFileAsync")
 def run_transcription_with_local_file(file_path: str, language: str):
     thread = Thread(target=local_file_transcription_task, args=(file_path, language))
     thread.start()
     return {"message": "Transcription started", "file_path": file_path}
+
+
+@app.get("/transcribeLocalFile")
+def run_transcription_with_local_file(file_path: str, language: str):
+    return local_file_transcription_task(file_path, language)
 
 
 @app.get("/getTranscriptText")
@@ -296,17 +306,3 @@ def get_timestamped_transcript(file_id: str):
     segments = json.loads(get_transcript_json_by_file_id(file_id))
     transcript = segments_to_timestamped_text(segments)
     return transcript
-
-
-if __name__ == "__main__":
-    # video_id = "mgXWL8Wv9bA"
-    # video_path, _, _, _ = get_workspace_paths(video_id)
-    # run_youtube_workflow(video_id, video_path)
-
-    # run_transcription("1hfn1s2kjkvnvhs", "e7c73a6a-23c5-4eaf-862c-a32c22fb2e01")
-    # on_transcript_finished("1bWF9XxShfmJHduABxgdN3SIZoY10ymgc", "e7c73a6a-23c5-4eaf-862c-a32c22fb2e01")
-    segments = json.loads(get_transcribe_json_api("1hfn1s2kjkvnvhs"))
-    timestamps = segments_to_timestamped_text(segments)
-    print(timestamps)
-
-# todo: add speaker detection
