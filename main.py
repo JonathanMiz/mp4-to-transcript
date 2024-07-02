@@ -260,11 +260,16 @@ def run_transcription_with_google_drive(file_id: str, notion_page_id: str, langu
     return google_drive_transcription_task(file_id, notion_page_id, language)
 
 
-@app.get("/transcribeYouTubeURL")
+@app.get("/transcribeYouTubeURLAsync")
 def run_transcription_with_youtube(file_id: str, language: str):
     thread = Thread(target=youtube_transcription_task, args=(file_id, language))
     thread.start()
     return {"message": "Transcription started", "file_id": file_id}
+
+
+@app.get("/transcribeYouTubeURL")
+def run_transcription_with_youtube(file_id: str, language: str):
+    return youtube_transcription_task(file_id, language)
 
 
 @app.get("/transcribeLocalFileAsync")

@@ -33,7 +33,7 @@ API that transcribes MP4 file to transcript with faster-whisper.
    ```
 2. Run on local environment
    ```sh
-   sudo cd mp4-to-transcript && sh run_local.sh
+   cd mp4-to-transcript && sudo sh run_local.sh
    ```
     Check service is running: http://0.0.0.0:3000/health
     
@@ -42,7 +42,7 @@ API that transcribes MP4 file to transcript with faster-whisper.
 3. 
 4. Run to connect to Make.com/Zapier.com or other
    ```sh
-   sudo cd mp4-to-transcript && sh run_remote.sh
+   cd mp4-to-transcript && sudo sh run_remote.sh
    ```    
     Check service is running: http://0.0.0.0:8000/health
     
