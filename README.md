@@ -40,7 +40,7 @@ API that transcribes MP4 file to transcript with faster-whisper.
    ```sh
    cd mp4-to-transcript && sh run_remote.sh
    ```    
-
+4. Check service is running: http://0.0.0.0:3000/health
 
 ### Full Video Guide
 
