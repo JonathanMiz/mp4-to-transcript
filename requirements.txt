@@ -5,3 +5,4 @@ gdown==5.2.0
 pydub==0.25.1
 urllib3==2.2.1
 uvicorn==0.30.1
+pytube
