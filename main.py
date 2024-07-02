@@ -1,5 +1,6 @@
 import json
 import os.path
+import re
 from pathlib import Path
 
 import gdown
@@ -54,6 +55,15 @@ def download_youtube_video(url, output_path):
     video.download(filename=output_path)
     download_time = time.time() - start_time
     logger.logger.info(f"Download time: {download_time:.2f} seconds.")
+
+
+def extract_video_code(url):
+    pattern = r'(?:https?://)?(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([\w-]+)'
+    match = re.search(pattern, url)
+    if match:
+        return match.group(1)
+    else:
+        return None
 
 
 model = WhisperModel("medium", device="cpu", compute_type="int8")
@@ -262,14 +272,16 @@ def run_transcription_with_google_drive(file_id: str, notion_page_id: str, langu
 
 
 @app.get("/transcribeYouTubeURLAsync")
-def run_transcription_with_youtube(file_id: str, language: str):
+def run_transcription_with_youtube(video_url: str, language: str):
+    file_id = extract_video_code(video_url)
     thread = Thread(target=youtube_transcription_task, args=(file_id, language))
     thread.start()
     return {"message": "Transcription started", "file_id": file_id}
 
 
 @app.get("/transcribeYouTubeURL")
-def run_transcription_with_youtube(file_id: str, language: str):
+def run_transcription_with_youtube(video_url: str, language: str):
+    file_id = extract_video_code(video_url)
     return youtube_transcription_task(file_id, language)
 
 
