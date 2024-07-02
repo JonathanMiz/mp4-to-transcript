@@ -19,7 +19,8 @@ load_dotenv()
 
 transcript_finished_webhook = os.getenv("TRANSCRIPT_FINISHED_WEBHOOK")
 if not transcript_finished_webhook:
-    raise Exception("Please enter transcript finished webhook.")
+    print("No transcript finished webhook.")
+    # raise Exception("Please enter transcript finished webhook.")
 
 # --------------------
 # utils
@@ -295,3 +296,17 @@ def get_timestamped_transcript(file_id: str):
     segments = json.loads(get_transcript_json_by_file_id(file_id))
     transcript = segments_to_timestamped_text(segments)
     return transcript
+
+
+if __name__ == "__main__":
+    # video_id = "mgXWL8Wv9bA"
+    # video_path, _, _, _ = get_workspace_paths(video_id)
+    # run_youtube_workflow(video_id, video_path)
+
+    # run_transcription("1hfn1s2kjkvnvhs", "e7c73a6a-23c5-4eaf-862c-a32c22fb2e01")
+    # on_transcript_finished("1bWF9XxShfmJHduABxgdN3SIZoY10ymgc", "e7c73a6a-23c5-4eaf-862c-a32c22fb2e01")
+    segments = json.loads(get_transcribe_json_api("1hfn1s2kjkvnvhs"))
+    timestamps = segments_to_timestamped_text(segments)
+    print(timestamps)
+
+# todo: add speaker detection
