@@ -35,12 +35,13 @@ API that transcribes MP4 file to transcript with faster-whisper.
    ```sh
    cd mp4-to-transcript && sh run_local.sh
    ```
+    Check service is running: http://0.0.0.0:3000/health
 
 3. Run to connect to Make.com/Zapier.com or other
    ```sh
    cd mp4-to-transcript && sh run_remote.sh
    ```    
-4. Check service is running: http://0.0.0.0:3000/health
+    Check service is running: http://0.0.0.0:8000/health
 
 ### Full Video Guide
 
